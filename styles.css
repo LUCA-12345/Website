@@ -12,12 +12,23 @@ p {
   vertical-align: baseline;
 }
 
+:root {
+  --primary-bg-color: rgba(160, 160, 160, 0.15);
+  --secondary-bg-color: rgba(160, 160, 160, 0.248);
+  --border-color: rgba(196, 196, 196, 0.055);
+  --faded-grey: rgba(93, 93, 93, 0.331);
+  --darker-grey: rgba(0, 0, 0, 0.529);
+  --non-transparents-grey: rgb(244, 244, 244);
+}
+
+/* ------------------- CENTER STAGE  --------------------- */
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 20px 10px 20px;
-  background-color: rgba(160, 160, 160, 0.15);
+  background-color: var(--primary-bg-color);
 }
 
 .headerMiddle {
@@ -27,18 +38,37 @@ header {
   align-items: center;
 }
 
-.hmbox {
-  margin: auto;
+.headerMiddle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .name {
+  position: relative;
   font-family: "Vandalism", "Courier New";
   font-size: 50px;
   padding: 15px;
   background-color: rgba(160, 160, 160, 0.031);
-  border: solid rgba(196, 196, 196, 0.055);
-  color: rgba(128, 128, 128, 0.393);
-  box-shadow: 10px 5px 5px rgba(160, 160, 160, 0.248);
+  border: solid var(--border-color);
+  color: var(--darker-grey);
+}
+
+.name::before {
+  background: hsl(45, 98%, 62%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.name:hover::before {
+  transform: scaleX(1);
+  transform-origin: center;
 }
 
 nav ul {
@@ -52,11 +82,24 @@ nav ul li {
   margin: 10px;
 }
 
-nav ul li a {
-  color: grey;
+nav a {
+  color: var(--darker-grey);
+  --c: linear-gradient(var(--darker-grey) 0 0);
+  text-decoration: none;
+  padding-bottom: 0.15em;
+  background: var(--c), var(--c);
+  background-size: 0.3em 0.1em;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  transition: 0.3s linear, background-size 0.3s 0.2s linear;
 }
 
-/* ---------------------------------------- */
+nav a:hover {
+  background-size: 40% 0.1em;
+  background-position: 10% 100%, 90% 100%;
+}
+
+/* ------------------- PYRAMIDS --------------------- */
 
 .beHeader {
   position: relative;
@@ -76,7 +119,7 @@ nav ul li a {
 
 .text p {
   font-family: "Vandalism", "Courier New";
-  color: rgba(93, 93, 93, 0.331);
+  color: var(--faded-grey);
   font-size: 12;
   margin: 0%;
   white-space: nowrap;
@@ -106,12 +149,12 @@ nav ul li a {
 
 .F {
   bottom: -20px;
-  border-bottom: 200px solid rgba(160, 160, 160, 0.15);
+  border-bottom: 200px solid var(--primary-bg-color);
   -webkit-transform: translateZ(25px) rotateX(30deg);
 }
 .B {
   bottom: -20px;
-  border-bottom: 200px solid rgba(160, 160, 160, 0.248);
+  border-bottom: 200px solid var(--secondary-bg-color);
   -webkit-transform: translateZ(-25px) rotateY(180deg) rotateX(30deg);
 }
 .L {
@@ -124,14 +167,14 @@ nav ul li a {
 .R {
   bottom: -40px;
   right: 150px;
-  border-bottom: 200px solid rgba(160, 160, 160, 0.15);
+  border-bottom: 200px solid var(--primary-bg-color);
   -webkit-transform: rotateY(-270deg) translateX(100px) rotateX(30deg);
   -webkit-transform-origin: top right;
 }
 .Bottom {
   width: 200px;
   height: 200px;
-  background-color: rgba(160, 160, 160, 0.15);
+  background-color: var(--primary-bg-color);
   -webkit-transform: rotateX(90deg) translateY(100px);
   -webkit-transform-origin: bottom center;
 }
@@ -145,12 +188,20 @@ nav ul li a {
   }
 }
 
-/* ---------------------------------------- */
+/* ------------------- MAIN PARENT --------------------- */
 
-/* ---------------------------------------- */
+.parent {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* -------------------- TOP PATTERN -------------------- */
 
 .dividerOne {
-  background-color: rgba(160, 160, 160, 0.248);
+  position: relative;
+  z-index: 0;
+  background-color: var(--secondary-bg-color);
   opacity: 0.4;
   background-image: linear-gradient(
       30deg,
@@ -214,12 +265,253 @@ nav ul li a {
   border: 1px #d8d8d8 dashed;
   -webkit-mask: var(--mask);
   mask: var(--mask);
-  height: 80px;
+  height: 580px;
   width: 100%;
 }
 
-/* ---------------------------------------- */
+/* -------------------- CONTENT -------------------- */
 
-.aboutMe {
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
   padding: 10px 20px;
 }
+
+.display {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 60px;
+}
+
+.dispOne {
+  display: flex;
+  justify-content: center;
+  grid-column: 1;
+  grid-row: 1;
+  padding: 20px;
+}
+
+.dispOne img {
+  height: 300px;
+  width: 600px;
+  padding: 60px;
+}
+
+.dispTwo {
+  display: flex;
+  justify-content: center;
+  grid-column: 2;
+  grid-row: 1;
+  padding: 20px;
+  border: solid var(--secondary-bg-color);
+  background-color: var(--non-transparents-grey);
+}
+
+.dispTwo img {
+  height: 600px;
+  width: 1200px;
+  padding: 60px;
+}
+
+.dispThree {
+  display: flex;
+  justify-content: center;
+  grid-column: 3;
+  grid-row: 1;
+  padding: 20px;
+}
+
+.dispThree img {
+  height: 300px;
+  width: 600px;
+  padding: 60px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* -------------------- PORT HOLES -------------------- */
+
+.portHoles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.portOne {
+  /*   
+  position: relative;
+  z-index: 1;
+  */
+  display: flex;
+  justify-content: center;
+  grid-column: 1;
+  grid-row: 2;
+  padding: 20px;
+}
+
+.portOne img {
+  height: 300px;
+  width: 300px;
+  padding: 60px;
+  border-radius: 50%;
+  box-shadow: 3px 3px var(--primary-bg-color),
+    -1em 0 0.4em var(--secondary-bg-color);
+}
+
+.portTwo {
+  display: flex;
+  justify-content: center;
+  grid-column: 2;
+  grid-row: 1;
+  background-color: var(--primary-bg-color);
+}
+
+.portThree {
+  display: flex;
+  justify-content: center;
+  grid-column: 3;
+  grid-row: 2;
+  padding: 20px;
+}
+
+.portThree img {
+  height: 300px;
+  width: 300px;
+  padding: 60px;
+  border-radius: 50%;
+  box-shadow: 3px 3px var(--primary-bg-color),
+    -1em 0 0.4em var(--secondary-bg-color);
+}
+
+/* -------------------- BOTTOM PATTERN -------------------- */
+
+.dividerTwo {
+  position: relative;
+  z-index: 0;
+  background-color: var(--secondary-bg-color);
+  opacity: 0.4;
+  background-image: linear-gradient(
+      30deg,
+      rgba(160, 160, 160, 0.248) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(160, 160, 160, 0.248) 87.5%,
+      rgba(160, 160, 160, 0.248)
+    ),
+    linear-gradient(
+      150deg,
+      rgba(160, 160, 160, 0.248) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(160, 160, 160, 0.248) 87.5%,
+      rgba(160, 160, 160, 0.248)
+    ),
+    linear-gradient(
+      30deg,
+      rgba(160, 160, 160, 0.248) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(160, 160, 160, 0.248) 87.5%,
+      rgba(160, 160, 160, 0.248)
+    ),
+    linear-gradient(
+      150deg,
+      rgba(160, 160, 160, 0.248) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(160, 160, 160, 0.248) 87.5%,
+      rgba(160, 160, 160, 0.248)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(160, 160, 160, 0.248) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(160, 160, 160, 0.248) 75%,
+      rgba(160, 160, 160, 0.248)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(160, 160, 160, 0.248) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(160, 160, 160, 0.248) 75%,
+      rgba(160, 160, 160, 0.248)
+    );
+  background-size: 20px 35px;
+  background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+  --mask: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(0, 0, 0, 0) 95%,
+      rgba(0, 0, 0, 0) 0
+    )
+    100% 50% / 100% 100% repeat-x;
+
+  border: 1px #d8d8d8 dashed;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  height: 580px;
+  width: 100%;
+  transform: rotate(180deg);
+}
+
+/* ---------------------------------------- */
