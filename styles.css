@@ -13,12 +13,16 @@ p {
 }
 
 :root {
+  /* -------------------- LIGHT THEME ---------------------- */
   --primary-bg-color: rgba(160, 160, 160, 0.15);
   --secondary-bg-color: rgba(160, 160, 160, 0.248);
   --border-color: rgba(196, 196, 196, 0.055);
   --faded-grey: rgba(93, 93, 93, 0.331);
   --darker-grey: rgba(0, 0, 0, 0.529);
   --non-transparents-grey: rgb(244, 244, 244);
+  /* -------------------- DARK THEME ---------------------- */
+  --primary-bg-color-dark: rgb(46, 48, 47);
+  /* "rgb(55,58,64)"  "rgb(45,48,46)" "rgb(64,65,78)" */
 }
 
 /* ------------------- CENTER STAGE  --------------------- */
@@ -261,8 +265,6 @@ nav a:hover {
       rgba(0, 0, 0, 0) 0
     )
     100% 50% / 100% 100% repeat-x;
-
-  border: 1px #d8d8d8 dashed;
   -webkit-mask: var(--mask);
   mask: var(--mask);
   height: 580px;
@@ -391,7 +393,7 @@ input:checked + .slider:before {
 .portHoles {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.75fr 1fr 1fr 1fr;
 }
 
 .portOne {
@@ -418,9 +420,16 @@ input:checked + .slider:before {
 .portTwo {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
+  padding: 20px;
   background-color: var(--primary-bg-color);
+}
+
+.portTwo p {
+  margin: 5px;
+  line-height: 25px;
 }
 
 .portThree {
@@ -505,8 +514,6 @@ input:checked + .slider:before {
       rgba(0, 0, 0, 0) 0
     )
     100% 50% / 100% 100% repeat-x;
-
-  border: 1px #d8d8d8 dashed;
   -webkit-mask: var(--mask);
   mask: var(--mask);
   height: 580px;
