@@ -86,21 +86,18 @@ nav ul li {
   margin: 10px;
 }
 
-nav a {
+a {
   color: var(--darker-grey);
-  --c: linear-gradient(var(--darker-grey) 0 0);
   text-decoration: none;
-  padding-bottom: 0.15em;
-  background: var(--c), var(--c);
-  background-size: 0.3em 0.1em;
-  background-position: 50% 100%;
-  background-repeat: no-repeat;
-  transition: 0.3s linear, background-size 0.3s 0.2s linear;
 }
 
 nav a:hover {
   background-size: 40% 0.1em;
   background-position: 10% 100%, 90% 100%;
+}
+
+audio {
+  transform: scale(0.75);
 }
 
 /* ------------------- PYRAMIDS --------------------- */
@@ -271,7 +268,7 @@ nav a:hover {
   width: 100%;
 }
 
-/* -------------------- CONTENT -------------------- */
+/* -------------------- CONTENT ------------------------ */
 
 .content {
   position: absolute;
@@ -283,7 +280,9 @@ nav a:hover {
   padding: 10px 20px;
 }
 
-.display {
+/* ----- FIRST ROW START ----- */
+
+.displayOne {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -293,30 +292,232 @@ nav a:hover {
 .dispOne {
   display: flex;
   justify-content: center;
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 1;
   padding: 20px;
+  border: solid var(--secondary-bg-color);
+  background-color: rgb(247, 247, 247);
 }
 
 .dispOne img {
-  height: 300px;
-  width: 600px;
+  height: 600px;
+  width: 1200px;
   padding: 60px;
 }
 
-.dispTwo {
+.portHolesOne {
+  display: grid;
+  grid-template-columns: 0.75fr 1.5fr 0.75fr;
+  grid-template-rows: 0.5fr 1fr 0.25fr;
+}
+
+.portHolesOne .portOne {
+  /*   
+    position: relative;
+    z-index: 1;
+    */
+  display: flex;
+  justify-content: center;
+  grid-column: 1;
+  grid-row: 2;
+  padding: 20px;
+}
+
+.portHolesOne .portOne img {
+  height: 300px;
+  width: 300px;
+  padding: 60px;
+  border-radius: 50%;
+  box-shadow: 3px 3px var(--primary-bg-color),
+    -1em 0 0.4em var(--secondary-bg-color);
+  background: repeating-radial-gradient(
+    circle,
+    var(--secondary-bg-color),
+    transparent 20%
+  );
+  background-size: 2em 2em;
+  background-color: #ffffff;
+  opacity: 1;
+  transform: scale(0.75);
+}
+
+.portHolesOne .portTwo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 2;
+  padding: 20px;
+}
+
+.portHolesOne .portTwo p {
+  font-family: "Roboto Mono", monospace;
+  margin: 5px;
+  line-height: 25px;
+}
+
+.portHolesOne .portThree {
+  display: flex;
+  justify-content: center;
+  grid-column: 3;
+  grid-row: 2;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.portHolesOne .portThree img {
+  height: 300px;
+  width: 300px;
+  padding: 60px;
+  border-radius: 50%;
+  box-shadow: 3px 3px var(--primary-bg-color),
+    -1em 0 0.4em var(--secondary-bg-color);
+  background: repeating-radial-gradient(
+    circle,
+    var(--secondary-bg-color),
+    transparent 20%
+  );
+  background-size: 2em 2em;
+  background-color: #ffffff;
+  opacity: 1;
+  transform: scale(0.75);
+}
+
+.x {
+  background: radial-gradient(circle, transparent 25%, #ffffff 26%),
+    linear-gradient(
+      45deg,
+      transparent 46%,
+      var(--primary-bg-color) 47%,
+      var(--primary-bg-color) 52%,
+      transparent 53%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 46%,
+      var(--primary-bg-color) 47%,
+      var(--primary-bg-color) 52%,
+      transparent 53%
+    );
+  background-size: 2em 2em;
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+.xOne {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.xTwo {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.xThree {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+/* ----- FIRST ROW END ----- */
+
+/* ----- SECOND ROW START ----- */
+
+.displayTwo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 60px;
+}
+
+.displayTwo .dispOne {
   display: flex;
   justify-content: center;
   grid-column: 2;
   grid-row: 1;
   padding: 20px;
   border: solid var(--secondary-bg-color);
-  background-color: var(--non-transparents-grey);
+  background-color: rgb(247, 247, 247);
+}
+
+.displayTwo .dispOne img {
+  height: 600px;
+  width: 1200px;
+  padding: 60px;
+}
+
+.portHolesTwo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr 0.75fr;
+}
+
+.portHolesTwo .portOne {
+  /*   
+      position: relative;
+      z-index: 1;
+      */
+  display: flex;
+  justify-content: center;
+  grid-column: 1;
+  grid-row: 2;
+  padding: 20px;
+}
+
+.portHolesTwo .portOne img {
+  height: 300px;
+  width: 300px;
+  padding: 60px;
+  border-radius: 50%;
+  box-shadow: 3px 3px var(--primary-bg-color),
+    -1em 0 0.4em var(--secondary-bg-color);
+}
+
+.portHolesTwo .portTwo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 2;
+  padding: 20px;
+}
+
+.portHolesTwo .portTwo p {
+  margin: 5px;
+  line-height: 25px;
+}
+
+.portHolesTwo .portThree {
+  display: flex;
+  justify-content: center;
+  grid-column: 3;
+  grid-row: 2;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.portHolesTwo .portThree img {
+  height: 300px;
+  width: 300px;
+  padding: 60px;
+  border-radius: 50%;
+  box-shadow: 3px 3px var(--primary-bg-color),
+    -1em 0 0.4em var(--secondary-bg-color);
+}
+
+/* ----- SECOND ROW END ----- */
+
+.dispTwo {
+  display: flex;
+  justify-content: center;
+  grid-column: 1;
+  grid-row: 1;
+  padding: 20px;
 }
 
 .dispTwo img {
-  height: 600px;
-  width: 1200px;
+  height: 300px;
+  width: 600px;
   padding: 60px;
 }
 
@@ -332,6 +533,12 @@ nav a:hover {
   height: 300px;
   width: 600px;
   padding: 60px;
+}
+
+.switchBox {
+  position: absolute;
+  z-index: 1;
+  height: 38px;
 }
 
 /* The switch - the box around the slider */
@@ -389,65 +596,6 @@ input:checked + .slider:before {
 }
 
 /* -------------------- PORT HOLES -------------------- */
-
-.portHoles {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.75fr 1fr 1fr 1fr;
-}
-
-.portOne {
-  /*   
-  position: relative;
-  z-index: 1;
-  */
-  display: flex;
-  justify-content: center;
-  grid-column: 1;
-  grid-row: 2;
-  padding: 20px;
-}
-
-.portOne img {
-  height: 300px;
-  width: 300px;
-  padding: 60px;
-  border-radius: 50%;
-  box-shadow: 3px 3px var(--primary-bg-color),
-    -1em 0 0.4em var(--secondary-bg-color);
-}
-
-.portTwo {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  grid-column: 2;
-  grid-row: 2;
-  padding: 20px;
-  background-color: var(--primary-bg-color);
-}
-
-.portTwo p {
-  margin: 5px;
-  line-height: 25px;
-}
-
-.portThree {
-  display: flex;
-  justify-content: center;
-  grid-column: 3;
-  grid-row: 2;
-  padding: 20px;
-}
-
-.portThree img {
-  height: 300px;
-  width: 300px;
-  padding: 60px;
-  border-radius: 50%;
-  box-shadow: 3px 3px var(--primary-bg-color),
-    -1em 0 0.4em var(--secondary-bg-color);
-}
 
 /* -------------------- BOTTOM PATTERN -------------------- */
 

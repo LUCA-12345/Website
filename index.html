@@ -6,6 +6,9 @@
     <title>Luca</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link href="https://fonts.cdnfonts.com/css/vandalism" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"> 
   </head>
   <body>
     <header id="header">
@@ -50,14 +53,14 @@
         </div>
       </div>
       <div class="headerMiddle">
-        <div class="hmbox">
-          <h1 class="name" id="name">F U G A Z I</h1>
-        </div>
-        <nav>
-          <ul>
-            <li><a class="link" id="navLink" href="#">About</a></li>
-          </ul>
-        </nav>
+        <a href="https://twitter.com/ccelerationist">
+            <div class="hmbox">
+                <h1 class="name" id="name">F U G A Z I</h1>
+              </div>
+        </a>
+        <audio controls>
+            <source src = "./audio/masQueNada.mp3" type = "audio/mpeg">
+         </audio>
       </div>
       <div class="beHeader">
         <div class="pyramid-spin">
@@ -103,19 +106,77 @@
     <div class="parent">
       <div class="dividerOne" id="dividerOne"></div>
       <div class="content">
-        <section class="display">
-          <div class="dispOne"></div>
-          <div class="dispTwo" id="dispTwo">
-            <img src="./images/dashboard-lighttheme.png" id="dashboard" />
+        <section class="displayOne">
+          <div class="dispOne" id="dispOne">
+            <img
+              src="./images/dashboard-lighttheme.png"
+              id="dashboard"
+              alt="dashboard"
+            />
+            <div class="switchBox">
+              <label class="switch">
+                <input type="checkbox" id="themeSwitch" />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="portHolesOne">
+        <div class="portOne">
+          <img
+            src="./images/shapelined-_JBKdviweXI-unsplash.jpg"
+            alt="moutains"
+          />
+        </div>
+        <div class="portTwo">
+          <p>
+            Angular and TypeScript were
+            employed in creating an interactive frontend, facilitated by
+            KendoUI. This combination enabled the formation of several unique
+            data visualizations, highlighting key business metrics effectively.
+          </p>
+          <p>
+            The application interfaced with a robust server-side layer,
+            developed with Java and Spring, aimed at proficiently managing the
+            data processing and business logic. Efficient data retrieval was
+            ensured by leveraging MySQL for data storage and designing
+            meticulous stored procedures.
+          </p>
+          <p>
+            This project epitomizes a strong skill set in handling full-stack
+            development, showcasing proficiency in Angular, TypeScript, KendoUI,
+            Java, Spring, and MySQL. It's a testament to the capacity to develop
+            intricate business applications that cater to diverse data analysis
+            requirements.
+          </p>
+        </div>
+        <div class="portThree">
+          <img
+            src="./images/shapelined-_JBKdviweXI-unsplash.jpg"
+            alt="moutains"
+          />
+        </div>
+        <div class="xOne x"></div>
+        <div class="xTwo x"></div>
+        <div class="xThree x"></div>
+      </section>
+    <section class="displayTwo">
+        <div class="dispOne" id="dispOne">
+          <img
+            src="./images/dashboard-lighttheme.png"
+            id="dashboard"
+            alt="dashboard"
+          />
+          <div class="switchBox">
             <label class="switch">
               <input type="checkbox" id="themeSwitch" />
               <span class="slider"></span>
             </label>
           </div>
-          <div class="dispThree"></div>
-        </section>
-      </div>
-      <section class="portHoles">
+        </div>
+      </section>
+      <section class="portHolesTwo">
         <div class="portOne">
           <img
             src="./images/shapelined-_JBKdviweXI-unsplash.jpg"
@@ -161,7 +222,9 @@
           />
         </div>
       </section>
-      <div class="dividerTwo"></div>
+     <div class="dividerTwo">
+     </div>
+    </div>
     </div>
   </body>
   <script>
@@ -172,26 +235,26 @@
     let name = document.getElementById("name");
     let navLink = document.getElementById("navlLink");
     let dividerOne = document.getElementById("dividerOne");
-    let dispTwo = document.getElementById("dispTwo");
+    let dispTwo = document.getElementById("dispOne");
     let text = document.getElementById("text");
+    let audio = document.querySelector("audio");
 
     // Added Elements
     let body = document.body;
-    let portTwo = document.getElementsByClassName("portTwo")[0]; // assuming there's only one element with class "portTwo"
+    let portTwo = document.getElementsByClassName("portTwo")[0];
 
     themeSwitch.addEventListener("change", function () {
       if (this.checked) {
         // Dark Theme
-        dashboard.src = "./images/dashboard-darktheme.png"; // change this to your dark theme image path
-        header.style = "background-color: rgb(28, 28, 28);";
-        dispTwo.style = "background-color: rgb(28, 28, 28);";
-        dividerOne.style = "background-color: rgb(45,48,46);";
+        dashboard.src = "./images/dashboard-darktheme.png";
+        header.style = "background-color: rgb(46, 48, 47);";
+        dispTwo.style = "background-color: rgb(46, 48, 47);";
+        dividerOne.style = "background-color: rgb(46, 48, 47);";
         name.style = "color: rgb(223, 223, 223);";
         text.style = "color: rgb(223, 223, 223);";
+        audio.style = "filter: invert(1);";
 
-        // Additional Elements
-        body.style = "background-color: rgb(28, 28, 28); color: white;";
-        portTwo.style = "background-color: rgb(38, 38, 38);";
+        body.style = "background-color: rgb(46, 48, 47); color: white;";
       } else {
         // Light Theme
         dashboard.src = "./images/dashboard-lighttheme.png";
@@ -200,10 +263,9 @@
         dividerOne.style = "";
         name.style = "";
         text.style = "";
+        audio.style = "";
 
-        // Additional Elements
         body.style = "";
-        portTwo.style = "";
       }
     });
   </script>
