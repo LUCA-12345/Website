@@ -448,8 +448,8 @@ audio {
 
 .portHolesTwo {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.1fr 1fr 0.75fr;
+  grid-template-columns: 0.75fr 1.5fr 0.75fr;
+  grid-template-rows: 0fr 1fr 0.25fr;
 }
 
 .portHolesTwo .portOne {
@@ -471,6 +471,15 @@ audio {
   border-radius: 50%;
   box-shadow: 3px 3px var(--primary-bg-color),
     -1em 0 0.4em var(--secondary-bg-color);
+  background: repeating-radial-gradient(
+    circle,
+    var(--secondary-bg-color),
+    transparent 20%
+  );
+  background-size: 2em 2em;
+  background-color: #ffffff;
+  opacity: 1;
+  transform: scale(0.75);
 }
 
 .portHolesTwo .portTwo {
@@ -483,6 +492,7 @@ audio {
 }
 
 .portHolesTwo .portTwo p {
+  font-family: "Roboto Mono", monospace;
   margin: 5px;
   line-height: 25px;
 }
@@ -503,6 +513,51 @@ audio {
   border-radius: 50%;
   box-shadow: 3px 3px var(--primary-bg-color),
     -1em 0 0.4em var(--secondary-bg-color);
+  background: repeating-radial-gradient(
+    circle,
+    var(--secondary-bg-color),
+    transparent 20%
+  );
+  background-size: 2em 2em;
+  background-color: #ffffff;
+  opacity: 1;
+  transform: scale(0.75);
+}
+
+.x {
+  background: radial-gradient(circle, transparent 25%, #ffffff 26%),
+    linear-gradient(
+      45deg,
+      transparent 46%,
+      var(--primary-bg-color) 47%,
+      var(--primary-bg-color) 52%,
+      transparent 53%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 46%,
+      var(--primary-bg-color) 47%,
+      var(--primary-bg-color) 52%,
+      transparent 53%
+    );
+  background-size: 2em 2em;
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+.xOne {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.xTwo {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.xThree {
+  grid-column: 3;
+  grid-row: 3;
 }
 
 /* ----- SECOND ROW END ----- */
@@ -602,6 +657,7 @@ input:checked + .slider:before {
 .dividerTwo {
   position: relative;
   z-index: 0;
+
   background-color: var(--secondary-bg-color);
   opacity: 0.4;
   background-image: linear-gradient(
@@ -666,6 +722,12 @@ input:checked + .slider:before {
   mask: var(--mask);
   height: 580px;
   width: 100%;
+  transform: rotate(180deg);
+}
+
+.dividerTwo pre {
+  display: flex;
+  justify-content: center;
   transform: rotate(180deg);
 }
 
